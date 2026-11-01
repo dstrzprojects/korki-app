@@ -1,0 +1,24 @@
+# Hasła i konfiguracja lokalna
+.env
+.env.*
+!.env.example
+.pgpass
+pgpass.conf
+
+# Środowiska i zależności
+.venv/
+venv/
+node_modules/
+
+# Pliki generowane
+__pycache__/
+*.py[cod]
+.angular/
+frontend/dist/
+*.log
+
+# Dane i kopie zapasowe
+*.dump
+*.backup
+*.sqlite3
+*.db
