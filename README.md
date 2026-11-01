@@ -1,8 +1,8 @@
 # Lekcje — lokalny dziennik i konsola SQL
 
-**Nowość: przełącznik danych rzeczywistych i testowych. Instrukcja: [START-DEMO.md](START-DEMO.md).**
-
 Django 5.2 + PostgreSQL + Angular 21. Aplikacja dla jednej osoby, wyłącznie pod adresem **http://127.0.0.1:8765**. Wszystkie dane pozostają w Twoim PostgreSQL. Brak kont w chmurze, telemetrii, CDN i zewnętrznych fontów. Po zainstalowaniu zależności aplikacja działa bez internetu. Nie wystawiaj jej do sieci; nie ma logowania.
+
+Program zawiera zestaw danych testowych. Więcej w instrukcji **START-DEMO.md**
 
 ## 1. Wymagania — Windows 10/11
 
@@ -11,7 +11,7 @@ Django 5.2 + PostgreSQL + Angular 21. Aplikacja dla jednej osoby, wyłącznie po
 - PostgreSQL **16 lub nowszy**, uruchomiony lokalnie. Instalator Windows: zapamiętaj hasło konta administracyjnego `postgres`.
 - VS Code z Twoją wtyczką PostgreSQL.
 
-Rozpakuj projekt do docelowego folderu, np. `C:\Projekty\Lekcje`. Nie przenoś folderu po utworzeniu środowiska `.venv` i skrótu; po przeniesieniu odtwórz je.
+Rozpakuj projekt do docelowego folderu. Nie przenoś folderu po utworzeniu środowiska `.venv` i skrótu; po przeniesieniu odtwórz je.
 
 ## 2. Instalacja zależności
 
@@ -193,8 +193,4 @@ Remove-Item Env:TEST_SQLITE
 
 Testy obejmują cenę i zaokrąglenia, stawkę historyczną, wpłaty częściowe i zbiorcze, nadpłaty, ręczny rozdział, usuwanie, walidację, CSRF i CSV. Konsola SQL jest dostępna tylko z PostgreSQL.
 
-To aplikacja jednoosobowa, bez logowania, synchronizacji, faktur ani rozliczeń podatkowych. Nie udostępniaj portu w sieci. Serwer nasłuchuje wyłącznie na 127.0.0.1, sprawdza adres klienta i źródło żądań oraz stosuje ochronę CSRF.
-
-### Zakres weryfikacji wydania
-
-Potwierdzono: kompilację Angulara, kontrolę konfiguracji Django, dziesięć testów logiki i izolacji dwóch baz na SQLite oraz test przeglądarkowy dodania lekcji i częściowej wpłaty, historii ucznia, motywu i układu mobilnego (bez błędów JavaScript). Dane testowe nie są dołączone do aplikacji. Nie uruchomiono tu serwera PostgreSQL ani skryptów Windows; ich sprawdzenie wykonasz po konfiguracji przez `verify_local` i `Uruchom.cmd`.
+To aplikacja bez logowania, synchronizacji, faktur ani rozliczeń podatkowych. Nie udostępniaj portu w sieci. Serwer nasłuchuje wyłącznie na 127.0.0.1, sprawdza adres klienta i źródło żądań oraz stosuje ochronę CSRF.
