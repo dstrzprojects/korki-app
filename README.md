@@ -146,7 +146,7 @@ Bezpośredni SQL omija walidację formularzy Django. Zachowuj poprawną metodę 
 „Dane i kopie” → „Kopia bazy” pobiera pełny dump PostgreSQL. Wymaga `pg_dump` w PATH albo ustawienia w `backend/.env`:
 
 ```dotenv
-PG_DUMP=C:\Program Files\PostgreSQL\18\bin\pg_dump.exe
+PG_DUMP=.\PostgreSQL\18\bin\pg_dump.exe
 ```
 
 Dopasuj wersję ścieżki do zainstalowanego PostgreSQL. Wersja pg_dump nie może być starsza niż serwer. Kopia nie zawiera haseł i ról globalnych PostgreSQL ani pliku `.env`; zachowaj konfigurację oddzielnie.
@@ -160,7 +160,7 @@ CREATE DATABASE lekcje_odtworzone OWNER lekcje_app;
 W PowerShell (dopasuj ścieżkę i nazwę dump):
 
 ```powershell
-& 'C:\Program Files\PostgreSQL\18\bin\pg_restore.exe' -h 127.0.0.1 -U lekcje_app -d lekcje_odtworzone --no-owner --no-privileges 'C:\Kopie\lekcje-backup.dump'
+& '.\PostgreSQL\18\bin\pg_restore.exe' -h 127.0.0.1 -U lekcje_app -d lekcje_odtworzone --no-owner --no-privileges 'C:\Kopie\lekcje-backup.dump'
 ```
 
 Program zapyta o hasło. Wykonaj `sql/02_permissions.sql` na odtworzonej bazie (pomiń CREATE SCHEMA, jeśli schemat cwiczenia już istnieje). Nadaj kontom SQL prawo CONNECT do nowej bazy. W `.env` ustaw `DB_NAME=lekcje_odtworzone`. Oryginalna baza pozostanie bez zmian. Dump odtworzony jako lekcje_app może przejąć własność tabel ćwiczeniowych — do tworzenia nowych tabel konto SQL nadal używa cwiczenia.
